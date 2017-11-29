@@ -134,6 +134,10 @@ app.get('/bad', (req, res) => {
 
 // .listen() method會bind一個port到我們的機器
 // 第二個參數是選項的，可以console一些成功運行的訊息之類的
-app.listen(3000, () => {
-    console.log('server is up on port 3000');
+// 因為要讓heroku或其他platform可以server檔案
+// 我們要設置一個環境變數代表著port
+// 我們可以在command line中運行env看到相關資訊
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`server is up on port ${port}`);
 });
