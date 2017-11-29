@@ -42,6 +42,7 @@ app.use((req, res, next) => {
     // 下面我們將log用fs寫入檔案server.log
     // '\n'是在新的log進來時進行換行
     const log = `目前時間: ${now} 請求方法: ${req.method} 請求的path: ${req.url}`;
+    console.log(log);
     fs.appendFile('server.log', log + '\n', (err) => {
         if(err) console.log('Unabled to create server.log file');
     });
@@ -127,7 +128,12 @@ app.get('/about', (req, res) => {
     // 就是傳prop過去啦
     res.render('about.hbs', { pageTitle: 'About Page' });
 })
-
+app.get('/source', (req, res) => {
+    res.render('source.hbs', {
+        pageTitle: 'Source Page',
+        pageLink: "https://github.com/MaGuangChen/node-web-server-test"
+    });
+})
 app.get('/bad', (req, res) => {
     res.send({ errorMessage: 'Sorry, we have some error!' });
 })
