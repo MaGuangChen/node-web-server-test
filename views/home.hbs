@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Some Website</title>
+    </head>
+    <body>
+        {{> header}}
+        <p>Some text here</p>
+        <!-- 
+            這是一般render prop的方法
+            <p>{{welcomeMsg}}</p>
+        -->
+        <!-- 
+            這是要叫出helper function並帶入參數的辦法
+            參數在helper name後空一格
+            若是在增加參數則在空一格
+            注意不要有多餘的空格 
+        -->
+        <p>{{screamIt welcomeMsg}}</p>
+        {{> footer}}
+    </body>
+</html>
